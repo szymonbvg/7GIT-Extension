@@ -1,0 +1,30 @@
+.emote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid gray;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.emote-floating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  background-color: #15191a;
+  border: 1px solid white;
+  z-index: 9999;
+}
+.emote-floating p {
+  width: auto;
+  height: auto;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
