@@ -1,4 +1,4 @@
-import { LocalEmoteSet } from "../types/Emotes";
+import { EmoteSet, LocalEmoteSet } from "../types/Emotes";
 import { Message, MessageResponse, MessageType } from "../structures/Messaging";
 
 export class MessageManager {
@@ -15,9 +15,9 @@ export class MessageManager {
 
           if (msg.data?.username) {
             const username = msg.data.username;
-            this.sendRequest("GET", `/v1/emotes/${username}`).then((res) => {
-              const emotes = (res.data as LocalEmoteSet).emotes;
-              this.localEmoteSet = { username: username, emotes: emotes };
+            this.sendRequest("GET", `/v1/users/${username}/emotes`).then((res) => {
+              const { emotes } = res.data as { emotes: EmoteSet | null };
+              this.localEmoteSet = { username, emotes };
               reply(emotes);
             });
           }

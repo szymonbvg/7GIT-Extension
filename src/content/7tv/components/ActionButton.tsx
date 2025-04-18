@@ -35,7 +35,9 @@ export default function ActionButton(props: ActionButtonProps) {
       });
 
       let body = "";
+      const path = action === ActionType.UPDATE ? "/v1/update/emote" : `/v1/emotes/${action}`;
       switch (action) {
+        case ActionType.UPDATE:
         case ActionType.ADD: {
           if (data?.emoteName) {
             body = JSON.stringify({ name: data.emoteName, emoteId: props.emoteId });
@@ -46,21 +48,12 @@ export default function ActionButton(props: ActionButtonProps) {
           body = JSON.stringify({ emoteId: props.emoteId });
           break;
         }
-        case ActionType.UPDATE: {
-          if (data?.emoteName) {
-            body = JSON.stringify({
-              type: "emote",
-              data: { name: data.emoteName, emoteId: props.emoteId },
-            });
-          }
-          break;
-        }
       }
 
       sendChromeMsg(
         {
           type: MessageType.REQUEST,
-          data: { path: `/v1/emotes/${action}`, method: "POST", body: body, token: token },
+          data: { path, method: "POST", body, token },
         },
         (res) => {
           const parsed = res as MessageResponse;
@@ -109,7 +102,7 @@ export default function ActionButton(props: ActionButtonProps) {
       sendChromeMsg(
         {
           type: MessageType.REQUEST,
-          data: { path: `/v1/emotes/emote/${props.emoteId}`, method: "GET", token: token },
+          data: { path: `/v1/emotes/${props.emoteId}`, method: "GET", token },
         },
         (res) => {
           const parsed = res as MessageResponse;

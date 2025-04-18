@@ -20,7 +20,7 @@ export async function getManifest() {
     host_permissions: ["*://github.com/*", "*://cdn.7tv.app/*", local ? "*://localhost/*" : backendURL],
     content_scripts: [
       {
-        matches: ["*://github.com/*", "*://7tv.app/*", local ? "*://localhost/*" : websiteURL],
+        matches: ["*://github.com/*", "*://old.7tv.app/*", local ? "*://localhost/*" : websiteURL],
         js: ["./content.js"],
       },
     ],

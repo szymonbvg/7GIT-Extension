@@ -28,7 +28,7 @@ if (hostname !== websiteURL) {
           case "github.com": {
             return <GithubApp />;
           }
-          case "7tv.app": {
+          case "old.7tv.app": {
             return <SevenTVApp />;
           }
         }
