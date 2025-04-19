@@ -26,7 +26,7 @@ export default function EmotesManager(props: EmoteManagerProps) {
           fetch(parsed.data)
             .then((response) => response.blob())
             .then((blob) => {
-              setBlobs((prev) => [...prev, { blob: URL.createObjectURL(blob), id: id }]);
+              setBlobs((prev) => [...prev, { blob: URL.createObjectURL(blob), id }]);
             });
         });
       }

@@ -23,10 +23,8 @@ export default function Emote(props: EmoteProps) {
     if (!emoteRef.current) {
       return;
     }
-    const w = emoteRef.current.width;
-    const h = emoteRef.current.height;
-
-    setSize({ width: w, height: h });
+    const { width, height } = emoteRef.current;
+    setSize({ width, height });
   };
 
   useEffect(() => {

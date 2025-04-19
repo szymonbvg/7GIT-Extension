@@ -31,8 +31,7 @@ export default function GithubApp() {
       }
 
       if (params.length >= 2 && params[2] !== "commit" && !isExcludedPath) {
-        const links = document.links;
-        for (const link of links) {
+        for (const link of document.links) {
           if (link.href.includes(`/${params[0]}/${params[1]}/commit/`) && !link.getAttribute("sevengit")) {
             link.setAttribute("sevengit", "loading");
             link.style.display = "inline-block";

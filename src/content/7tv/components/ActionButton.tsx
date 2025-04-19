@@ -7,10 +7,6 @@ import { EmoteType } from "../../../types/Emotes";
 import { useVersion } from "../hooks/useVersion";
 import { useAuth } from "../hooks/useAuth";
 
-type ActionButtonProps = {
-  emoteId: string;
-};
-
 type ActionButtonState = {
   exists: boolean;
   loading: boolean;
@@ -18,7 +14,7 @@ type ActionButtonState = {
   msg?: string;
 };
 
-export default function ActionButton(props: ActionButtonProps) {
+export default function ActionButton(props: {emoteId: string}) {
   const { v2 } = useVersion();
 
   const { token, payload } = useAuth();
