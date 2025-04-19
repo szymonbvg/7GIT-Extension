@@ -1,20 +1,9 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Payload } from "../../../structures/Common";
 import { jwtDecode } from "jwt-decode";
+import AuthContext from "../contexts/AuthContext";
 
-export const AuthContext = createContext<{
-  token?: string;
-  status: boolean;
-  payload?: Payload;
-}>({
-  status: false,
-});
-
-type AuthWrapperProps = {
-  children: ReactNode;
-};
-
-export default function AuthWrapper(props: AuthWrapperProps) {
+export default function AuthProvider(props: { children?: ReactNode }) {
   const [token, setToken] = useState<string>();
   const [status, setStatus] = useState(false);
   const [payload, setPayload] = useState<Payload>();
@@ -42,9 +31,9 @@ export default function AuthWrapper(props: AuthWrapperProps) {
   return (
     <AuthContext.Provider
       value={{
-        token: token,
-        status: status,
-        payload: payload,
+        token,
+        status,
+        payload,
       }}
     >
       {props.children}

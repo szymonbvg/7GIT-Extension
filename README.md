@@ -12,6 +12,9 @@ If you want to build it for Firefox or any other browser that uses Manifest v2, 
 
 Building the extension **locally** (`build:local`) means that you also need to run backend and website **locally**.
 
+- [API Repository](https://github.com/szymonbvg/7GIT-Backend)
+- [Website Repository](https://github.com/szymonbvg/7GIT-Website)
+
 ## How it works
 
 ### 7tv.app

@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "./AuthWrapper";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import EmoteDialog from "./EmoteDialog";
 import { ActionData, ActionType } from "../../../types/Action";
 import { MessageResponse, MessageType, sendChromeMsg } from "../../../structures/Messaging";
 import { EmoteType } from "../../../types/Emotes";
+import { useVersion } from "../hooks/useVersion";
+import { useAuth } from "../hooks/useAuth";
 
 type ActionButtonProps = {
   emoteId: string;
@@ -18,7 +19,9 @@ type ActionButtonState = {
 };
 
 export default function ActionButton(props: ActionButtonProps) {
-  const { token, payload } = useContext(AuthContext);
+  const { v2 } = useVersion();
+
+  const { token, payload } = useAuth();
   const [state, setState] = useState<ActionButtonState>({
     exists: false,
     loading: true,
@@ -122,7 +125,7 @@ export default function ActionButton(props: ActionButtonProps) {
 
   return (
     <>
-      <div id="sevengit-action-btn" onClick={() => handleDialog(true)}>
+      <div id={v2 ? "new-sevengit-action-btn" : "sevengit-action-btn"} onClick={() => handleDialog(true)}>
         {payload ? (
           !state.loading ? (
             <>

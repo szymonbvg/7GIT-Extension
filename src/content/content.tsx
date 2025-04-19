@@ -1,7 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import SevenTVApp from "./7tv/SevenTVApp";
 import GithubApp from "./github/GithubApp";
+import SevenTVApp from "./7tv/SevenTVApp";
+import VersionProvider from "./7tv/providers/VersionProvider";
 
 const style = document.createElement("link");
 style.rel = "stylesheet";
@@ -28,8 +29,13 @@ if (hostname !== websiteURL) {
           case "github.com": {
             return <GithubApp />;
           }
-          case "old.7tv.app": {
-            return <SevenTVApp />;
+          case "old.7tv.app":
+          case "7tv.app": {
+            return (
+              <VersionProvider v2={hostname === "7tv.app"}>
+                <SevenTVApp />;
+              </VersionProvider>
+            );
           }
         }
       })()}

@@ -47,10 +47,20 @@
   justify-content: center;
   align-items: center;
 }
-#sevengit-login img {
+#sevengit-login img,
+#new-sevengit-login img,
+#new-sevengit-user img {
   filter: invert(1);
   max-width: 2rem;
   min-width: 2rem;
+}
+#new-sevengit-login img {
+  border: 2px solid;
+}
+#new-sevengit-user img {
+  filter: none !important;
+  border: 1px solid gray;
+  border-radius: 50%;
 }
 
 #sevengit-user {
@@ -98,6 +108,7 @@
   left: calc(50% - 10rem);
   width: 20rem;
   height: 20rem;
+  color: white;
   background-color: #15191a;
   border: 1px solid #5ca20d;
   z-index: 9999;
@@ -174,4 +185,45 @@
   padding: 15px;
   padding-top: 0;
   color: red;
+}
+
+/* 7tv v2 */
+
+#new-sevengit-login,
+#new-sevengit-user {
+  display: flex;
+  gap: .5rem;
+  cursor: pointer;
+}
+#new-sevengit-login p,
+#new-sevengit-user p {
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
+#new-sevengit-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#new-sevengit-action-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.325rem;
+  padding: 0 20px;
+  background: #222;
+  color: white;
+  border: 2px solid #5ca20d;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
