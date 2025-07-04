@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="public/logo.svg" height="128" />
+  <picture>
+    <img src="public/logo.svg" height="128" />
+  </picture>
   <h1 align="center">7GIT Extension</h1>
 </p>
 
